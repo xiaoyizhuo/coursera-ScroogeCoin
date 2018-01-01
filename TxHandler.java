@@ -1,3 +1,7 @@
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 public class TxHandler {
 
 	private UTXOPool utxoPool;
@@ -71,7 +75,7 @@ public class TxHandler {
                     UTXO utxo = new UTXO(in.prevTxHash, in.outputIndex);
                     utxoPool.removeUTXO(utxo);
                 }
-                
+
                 for (int i = 0; i < tx.numOutputs(); i++) {
                     Transaction.Output out = tx.getOutput(i);
                     UTXO utxo = new UTXO(tx.getHash(), i);
